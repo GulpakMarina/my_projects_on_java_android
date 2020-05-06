@@ -1,0 +1,66 @@
+try {
+                learntWordsIn = context.openFileInput("S3"+dateText);
+                learntWordsOut = context.openFileOutput("S3"+dateText, MODE_PRIVATE);
+                ToLayout(rl,tv1,tv2);//вивожу на єеран 5 слів з файлу або скільки є
+                if(flag==0){  ((MainActivity)getActivity()).Write_Words();}
+                else{
+                    ArrayMap<String, String> arrayMapNextFile = new ArrayMap<>(arrayMap_for_next);//для слів з файлу для вивчення через 7 днів і для нових які будуть заисані у фйал
+                    try {
+                        learntWordsInNext = context.openFileInput("S7" + dateText);
+                        learntWordsOutNext = context.openFileOutput("S7" + dateText, MODE_PRIVATE);
+                        InputWithFile(arrayMapNextFile,learntWordsInNext);
+                        OutputInFile(arrayMapNextFile,learntWordsOutNext);
+                        learntWordsInNext.close();
+                        learntWordsOutNext.close();
+                    } catch (IOException e) { e.printStackTrace(); }}
+            } catch (FileNotFoundException e) {
+                try {
+                    learntWordsIn = context.openFileInput("S7"+dateText);
+                    learntWordsOut = context.openFileOutput("S7"+dateText, MODE_PRIVATE);
+                    ToLayout(rl,tv1,tv2);
+                    if(flag==0){ ((MainActivity)getActivity()).Write_Words();}
+                    else{
+                        ArrayMap<String, String> arrayMapNextFile = new ArrayMap<>(arrayMap_for_next);//для слів з файлу для вивчення через місяць і для нових які будуть заисані у фйал
+                        try {
+                            learntWordsInNext = context.openFileInput("SM" + dateText);
+                            learntWordsOutNext = context.openFileOutput("SM" + dateText, MODE_PRIVATE);
+                            InputWithFile(arrayMapNextFile,learntWordsInNext);
+                            OutputInFile(arrayMapNextFile,learntWordsOutNext);
+                            learntWordsInNext.close();
+                            learntWordsOutNext.close();
+                        } catch (IOException e2) {
+                        }}
+                } catch (FileNotFoundException e2) {
+                    try {
+                        learntWordsIn = context.openFileInput("SM"+dateText);
+                        learntWordsOut = context.openFileOutput("SM"+dateText, MODE_PRIVATE);
+                        ToLayout(rl,tv1,tv2);//кінцеве вивчення слів
+                        if(flag==0){ ((MainActivity)getActivity()).Write_Words();}
+                    } catch (FileNotFoundException e3) {
+
+
+
+
+
+
+
+public void ToLayout(RelativeLayout[] rl, TextView[] tv1, TextView[] tv2){
+        int i = 0;
+        try {
+
+            for (ArrayMap.Entry<String, String> aM : arrayMapBase.entrySet()) {
+                rl[i].setVisibility(View.VISIBLE);
+                tv1[i].setText(aM.getKey());
+                tv2[i].setText(aM.getValue());
+                flag++;
+                arrayMap_for_next.put(aM.getKey(), aM.getValue());
+                arrayMapBase.remove(aM.getKey());
+                if (i < 5) i++;
+                else break;
+            }
+            OutputInFile(arrayMapBase,learntWordsOut);
+            learntWordsIn.close();
+            learntWordsOut.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }

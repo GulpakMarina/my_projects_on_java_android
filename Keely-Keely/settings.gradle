@@ -1,0 +1,2 @@
+include ':app', ':preapp'
+rootProject.name='keely'

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ImagineButtonGathina" parent="Widget.AppCompat.ImageButton">
+        <item name="android:colorButtonNormal">@color/colorIconGatinha</item>
+        <item name="android:colorActivatedHighlight">@color/colorPrimary</item>
+        <item name="colorAccent">@color/cardview_light_background</item>
+    </style>
+    <style name="StyleForCL">
+        <item name= "android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+    <style name="StyleForTVinCL">
+        <item name= "android:layout_width">wrap_content</item>
+        <item name= "android:layout_height">wrap_content</item>
+        <item name= "android:textSize">18sp</item>
+
+    </style>
+    <style name="StyleForTVinCL_End">
+        <item name= "android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textSize">18dp</item>
+        <item name="android:visibility">invisible</item>
+        <item name= "android:hint">translate, translate2</item>
+    </style>
+    <style name="MyStyleCheckBox" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="colorAccent">@color/colorIconGatinha</item>
+    </style>
+    <style name="MyStyleAlarm" parent="Widget.AppCompat.CompoundButton.CheckBox">
+        <item name="colorAccent">@color/colorIconGatinha</item>
+    </style>
+</resources>
